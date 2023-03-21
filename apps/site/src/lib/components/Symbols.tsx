@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import clsx from "clsx";
 
 interface IconProps {
-  id: string;
+  id?: string;
   w: number | string;
   h: number | string;
   hoverable?: boolean;
