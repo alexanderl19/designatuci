@@ -103,7 +103,7 @@ export { Icon, Photo, Section };
 
 interface SpaceProps {
   w: number | string;
-  h: number | string;
+  h?: number | string;
   block: boolean;
   style?: CSSProperties;
   className?: ClassValue | ClassValue[];
@@ -115,7 +115,7 @@ export function Space({ w, h, block, style, className, ...props }: SpaceProps) {
       className={clsx("space", className)}
       style={{
         width: w + "px",
-        height: h + "px",
+        ...(h && { height: h + "px" }),
         ...(block && { display: "block" }),
         ...style,
       }}
