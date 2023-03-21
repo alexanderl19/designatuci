@@ -1,72 +1,133 @@
 "use client";
 
-import clsx from "clsx";
+import type { ReactNode, CSSProperties } from "react";
+import type { ClassValue } from "clsx";
 import { useState, useEffect } from "react";
+import clsx from "clsx";
 
-const Icon = (props) => {
-  let style = {
-    width: props.w + "px",
-    height: props.h + "px",
-    backgroundImage: `url(/static/icon/${props.src})`,
-    ...props.style,
-  };
+interface IconProps {
+  id: string;
+  w: number;
+  h: number;
+  hoverable?: boolean;
+  src: string;
+  style?: CSSProperties;
+  className?: ClassValue | ClassValue[];
+  children?: ReactNode;
+}
+const Icon = ({
+  id,
+  w,
+  h,
+  hoverable = false,
+  src,
+  style,
+  className,
+  children,
+}: IconProps) => {
   return (
     <div
-      id={props.id}
-      className={clsx("icon", props.hoverable && "hoverable", props.className)}
-      style={style}
+      id={id}
+      className={clsx("icon", { hoverable: hoverable }, className)}
+      style={{
+        width: w + "px",
+        height: h + "px",
+        backgroundImage: `url(/static/icon/${src})`,
+        ...style,
+      }}
     >
-      {props.children}
+      {children}
     </div>
   );
 };
 
-const Photo = (props) => {
-  const [photoData, setphotoData] = useState(null);
-  let style = {
-    backgroundImage: photoData,
-    ...props.style,
-  };
+interface PhotoProps {
+  id: string;
+  lazy?: boolean;
+  src: string;
+  style?: CSSProperties;
+  className?: ClassValue | ClassValue[];
+  children?: ReactNode;
+}
+const Photo = ({
+  id,
+  lazy = false,
+  src,
+  style,
+  className,
+  children,
+}: PhotoProps) => {
+  const [photoData, setPhotoData] = useState<string>();
 
   useEffect(() => {
     setTimeout(
       () => {
-        setphotoData(`url(/static/photo/${props.src})`);
+        setPhotoData(`url(/static/photo/${src})`);
       },
-      props?.lazy ? 500 : 0
+      lazy ? 500 : 0
     );
-  }, [props.lazy, props.src]);
+  }, [lazy, src]);
 
   return (
-    <div className={`photo ${props.className}`} style={style} id={props.id}>
-      {props.children}
+    <div
+      id={id}
+      className={clsx("photo", className)}
+      style={{
+        backgroundImage: photoData,
+        ...style,
+      }}
+    >
+      {children}
     </div>
   );
 };
 
-const Section = ({ children, className, wrapperClass, ...props }) => (
-  <div className={clsx("section ", className)} {...props}>
-    <div className={clsx("wrapper ", wrapperClass)}>{children}</div>
+interface SectionProps {
+  className: ClassValue | ClassValue[];
+  wrapperClass: ClassValue | ClassValue[];
+  children: ReactNode;
+  [props: string]: any;
+}
+const Section = ({
+  className,
+  wrapperClass,
+  children,
+  ...props
+}: SectionProps) => (
+  <div className={clsx("section", className)} {...props}>
+    <div className={clsx("wrapper", wrapperClass)}>{children}</div>
   </div>
 );
 
 export { Icon, Photo, Section };
 
-export function Space({ block, ...props }) {
-  let style = {
-    width: props.w + "px",
-    height: props.h + "px",
-    ...props.style,
-  };
-  if (block) {
-    style.display = "block";
-  }
+interface SpaceProps {
+  w: number;
+  h: number;
+  block: boolean;
+  style?: CSSProperties;
+  className?: ClassValue | ClassValue[];
+  [props: string]: any;
+}
+export function Space({ w, h, block, style, className, ...props }: SpaceProps) {
   return (
-    <div className={"space " + props.className} {...props} style={style}></div>
+    <div
+      className={clsx("space", className)}
+      style={{
+        width: w + "px",
+        height: h + "px",
+        ...(block && { display: "block" }),
+        ...style,
+      }}
+      {...props}
+    />
   );
 }
 
-export function LoadingD(props) {
+interface LoadingDProps {
+  [props: string]: any;
+}
+export function LoadingD(props: LoadingDProps) {
   return (
     <div>
       <svg
@@ -126,7 +187,12 @@ export function LoadingD(props) {
   );
 }
 
-export function PageIcon(props) {
+interface PageIconProps {
+  color?: string;
+  className?: ClassValue | ClassValue[];
+  [props: string]: any;
+}
+export function PageIcon({ color, className, ...props }: PageIconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -135,18 +201,24 @@ export function PageIcon(props) {
       clipRule="evenodd"
       strokeLinejoin="round"
       strokeMiterlimit={2}
+      className={clsx("icon", className)}
       {...props}
-      className={"icon " + props.className}
     >
       <path
         d="M10.617 5H9a4 4 0 00-4 4v6a4 4 0 004 4h6a4 4 0 004-4v-1.617a1 1 0 00-2 0V15a2 2 0 01-2 2H9a2 2 0 01-2-2V9a2 2 0 012-2h1.617a1 1 0 000-2zm6.969 0l-7.137 7.136a1.002 1.002 0 000 1.415c.391.39 1.024.39 1.415 0L19 6.414v3.642a1 1 0 002 0V4a1 1 0 00-1-1h-6.056a1 1 0 000 2h3.642z"
-        fill={props.color}
+        fill={color}
       />
     </svg>
   );
 }
 
-export const CheckIcon = ({ check, ...props }) => (
+interface CheckIconProps {
+  check?: ReactNode;
+  color?: string;
+  r: number;
+  [props: string]: any;
+}
+export const CheckIcon = ({ check, color, r, ...props }: CheckIconProps) => (
   <svg
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
@@ -154,9 +226,9 @@ export const CheckIcon = ({ check, ...props }) => (
     clipRule="evenodd"
     strokeLinejoin="round"
     strokeMiterlimit={2}
-    fill={props.color}
-    width={props.r}
-    height={props.r}
+    fill={color}
+    width={r}
+    height={r}
     {...props}
   >
     {check ? (
