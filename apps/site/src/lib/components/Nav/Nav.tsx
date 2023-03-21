@@ -17,8 +17,6 @@ const Nav = () => {
   const toggleMobileExpand = () => {
     setMobileExpand(!mobileExpand);
   };
-  // if (pathname === "/designathon22/" || pathname === "/designathon22")
-  //   return <></>;
 
   return (
     <nav>

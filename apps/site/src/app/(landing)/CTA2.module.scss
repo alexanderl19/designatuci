@@ -1,0 +1,13 @@
+.background {
+  z-index: -1;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  inset: 0;
+
+  img {
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: top;
+  }
+}

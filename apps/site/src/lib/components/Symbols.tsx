@@ -42,7 +42,7 @@ const Icon = ({
 };
 
 interface PhotoProps {
-  id: string;
+  id?: string;
   lazy?: boolean;
   src: string;
   style?: CSSProperties;
