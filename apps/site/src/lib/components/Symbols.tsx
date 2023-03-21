@@ -102,8 +102,8 @@ const Section = ({
 export { Icon, Photo, Section };
 
 interface SpaceProps {
-  w: number;
-  h: number;
+  w: number | string;
+  h: number | string;
   block: boolean;
   style?: CSSProperties;
   className?: ClassValue | ClassValue[];
