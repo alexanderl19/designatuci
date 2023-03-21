@@ -1,9 +1,9 @@
-@import "~@/lib/styles/variables";
+@use "~@/lib/styles/variables" as variables;
 
 .footer {
   padding-top: 88px;
-  color: $white;
-  background: $black;
+  color: variables.$white;
+  background: variables.$black;
 
   a .text {
     border-bottom: solid 1px #0000;
@@ -11,12 +11,12 @@
 
   a:hover .text,
   .mark:hover {
-    color: $blue;
-    border-bottom: solid 1px $blue;
+    color: variables.$blue;
+    border-bottom: solid 1px variables.$blue;
   }
 
   .mark {
-    border-bottom: solid 1px $gray;
+    border-bottom: solid 1px variables.$gray;
   }
 
   @media only screen and (max-width: 768px) {

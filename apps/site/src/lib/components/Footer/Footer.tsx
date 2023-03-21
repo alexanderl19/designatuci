@@ -5,10 +5,11 @@ import { Text } from "@/lib/components";
 import { Section, Icon, Space } from "@/lib/components/Symbols";
 import socials from "@/lib/data/socials.json";
 
+import clsx from "clsx";
 import cn from "./Footer.module.scss";
 
 const Footer = () => (
-  <Section className={`short ${cn.footer}`}>
+  <Section className={clsx("short", cn.footer)}>
     <div className="split3">
       <div style={{ color: "white" }}>
         <Link href="/">

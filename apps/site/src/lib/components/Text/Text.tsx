@@ -24,6 +24,7 @@ interface TextProps {
   icon?: boolean | "right";
   className?: ClassValue | ClassValue[];
   children?: ReactNode;
+  [props: string]: any;
 }
 const Text = ({
   size,

@@ -83,8 +83,8 @@ const Photo = ({
 };
 
 interface SectionProps {
-  className: ClassValue | ClassValue[];
-  wrapperClass: ClassValue | ClassValue[];
+  className?: ClassValue | ClassValue[];
+  wrapperClass?: ClassValue | ClassValue[];
   children: ReactNode;
   [props: string]: any;
 }
@@ -102,7 +102,7 @@ const Section = ({
 export { Icon, Photo, Section };
 
 interface SpaceProps {
-  w: number | string;
+  w?: number | string;
   h?: number | string;
   block?: boolean;
   style?: CSSProperties;
@@ -114,7 +114,7 @@ export function Space({ w, h, block, style, className, ...props }: SpaceProps) {
     <div
       className={clsx("space", className)}
       style={{
-        width: w + "px",
+        ...(w && { width: w + "px" }),
         ...(h && { height: h + "px" }),
         ...(block && { display: "block" }),
         ...style,
