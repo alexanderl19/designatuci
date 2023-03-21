@@ -8,7 +8,8 @@ import { Text } from "@/lib/components";
 import { Space, Icon } from "@/lib/components/Symbols";
 import socials from "@/lib/data/socials.json";
 
-import "./Nav.scss";
+import clsx from "clsx";
+import cn from "./Nav.module.scss";
 
 const Nav = () => {
   const pathname = usePathname();
@@ -16,15 +17,15 @@ const Nav = () => {
   const toggleMobileExpand = () => {
     setMobileExpand(!mobileExpand);
   };
-  if (pathname === "/designathon22/" || pathname === "/designathon22")
-    return <></>;
+  // if (pathname === "/designathon22/" || pathname === "/designathon22")
+  //   return <></>;
 
   return (
     <nav>
-      <div id="navSpacer" />
-      <div id="nav" mobile-expand={mobileExpand ? "true" : "false"}>
-        <div className="wrapper center wide">
-          <div className="center row group left">
+      <div className={cn.navSpacer} />
+      <div className={cn.nav} mobile-expand={mobileExpand ? "true" : "false"}>
+        <div className={clsx("center", cn.wrapper, cn.wide)}>
+          <div className={clsx("center", "row", cn.group, cn.left)}>
             {pathname === "/" ? (
               <>
                 <Space w="8" />
@@ -34,66 +35,69 @@ const Nav = () => {
                     target="_blank"
                     rel="noreferrer noopener"
                     href={link}
-                    className="item social center"
+                    className={clsx("center", cn.item, cn.social)}
                   >
                     <Icon w="24" h="24" hoverable src={icons.nav} />
                   </a>
                 ))}
               </>
             ) : (
-              <Link href="/" className="item center brand">
+              <Link href="/" className={clsx("center", cn.item, cn.brand)}>
                 <Icon w="24" h="24" src="logo.svg" />
                 <Space w="16" />
                 <Text>Design at UCI</Text>
               </Link>
             )}
           </div>
-          <div className="center row group">
-            <Link href="/join" className="item center">
+          <div className={clsx("center", "row", cn.group)}>
+            <Link href="/join" className={clsx("center", cn.item)}>
               <Text>Join</Text>
             </Link>
-            <Link href="/events" className="item center">
+            <Link href="/events" className={clsx("center", cn.item)}>
               <Text>Events</Text>
             </Link>
-            <Link href="/resources" className="item center">
+            <Link href="/resources" className={clsx("center", cn.item)}>
               <Text>Resources</Text>
             </Link>
-            <Link href="/merch" className="item center">
+            <Link href="/merch" className={clsx("center", cn.item)}>
               <Text>Merch</Text>
             </Link>
           </div>
-          <div className="center row group right">
-            <Link href="/about" className="item center">
+          <div className={clsx("center", "row", cn.group, cn.right)}>
+            <Link href="/about" className={clsx("center", cn.item)}>
               <Text>About</Text>
             </Link>
-            <Link href="/contact" className="item center">
+            <Link href="/contact" className={clsx("center", cn.item)}>
               <Text>Contact</Text>
             </Link>
           </div>
         </div>
-        <div className="wrapper center mobile">
-          <div className="center row group left">
+        <div className={clsx("center", cn.wrapper, cn.mobile)}>
+          <div className={clsx("center", "row", cn.group, cn.left)}>
             {pathname === "/" ? (
               <>
                 <Space w="8" />
                 {socials.map(({ name, icons, link }) => (
-                  <a key={name} href={link} className="item social center">
+                  <a
+                    key={name}
+                    href={link}
+                    className={clsx("center", cn.item, cn.social)}
+                  >
                     <Icon w="24" h="24" hoverable src={icons.nav} />
                   </a>
                 ))}
               </>
             ) : (
-              <Link href="/" className="item center brand">
+              <Link href="/" className={clsx("center", cn.item, cn.brand)}>
                 <Icon w="24" h="24" src="logo.svg" />
                 <Space w="24" />
                 <Text>Design at UCI</Text>
               </Link>
             )}
           </div>
-          <div className="center row group right">
+          <div className={clsx("center", "row", cn.group, cn.right)}>
             <button
-              className="item center"
-              id="navToggle"
+              className={clsx("center", cn.item, cn.navToggle)}
               onClick={toggleMobileExpand}
               style={{
                 border: "none",
@@ -101,10 +105,10 @@ const Nav = () => {
                 padding: "16px",
               }}
             >
-              <Icon w="24" h="24" src="nav-menu.svg" />
+              <Icon w="24" h="24" src="nav-menu.svg" className={cn.icon} />
             </button>
           </div>
-          <div className="links spaceChildren">
+          <div className={clsx("spaceChildren", cn.links)}>
             {[
               { label: "Events", url: "/events" },
               { label: "Resources", url: "/resources" },
@@ -112,11 +116,21 @@ const Nav = () => {
               { label: "Contact", url: "/contact" },
               { label: "Merch", url: "/merch" },
             ].map(({ label, url }) => (
-              <Link key={url} href={url} className="item center">
+              <Link key={url} href={url} className={clsx("center", cn.item)}>
                 <Text size="L">{label}</Text>
               </Link>
             ))}
-            <Link href="/join" className="item center button fill sky">
+            <Link
+              href="/join"
+              className={clsx(
+                "center",
+                "fill",
+                "sky",
+                "button",
+                cn.item,
+                cn.button
+              )}
+            >
               <Text size="L">Join</Text>
             </Link>
           </div>
