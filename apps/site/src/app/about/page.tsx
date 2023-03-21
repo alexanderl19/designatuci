@@ -3,7 +3,7 @@ import Link from "next/link";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 import { Text } from "@/lib/components";
-import { Section, Space, Icon } from "@/lib/components/Symbols.js";
+import { Section, Space, Icon } from "@/lib/components/Symbols";
 // import ALUMNI_BOARD from "@/lib/data/alumniBoard.json";
 import TESTIMONIALS from "@/lib/data/boardTestimonials.json";
 // import CURRENT_BOARD from "@/lib/data/currentBoard.json";

@@ -1,5 +1,5 @@
 import type { QueryResult } from "./page";
-import { Icon } from "@/lib/components/Symbols.js";
+import { Icon } from "@/lib/components/Symbols";
 
 import { client } from "@/lib/sanity/public";
 import imageUrlBuilder from "@sanity/image-url";

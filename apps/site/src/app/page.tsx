@@ -5,7 +5,7 @@ import clsx from "clsx";
 import Link from "next/link";
 
 import { Text } from "@/lib/components";
-import { Section, Icon, Space, Photo } from "@/lib/components/Symbols.js";
+import { Section, Icon, Space, Photo } from "@/lib/components/Symbols";
 
 import { useScroll } from "@/lib/controllers";
 
