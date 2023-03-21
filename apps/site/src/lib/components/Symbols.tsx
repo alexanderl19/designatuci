@@ -104,7 +104,7 @@ export { Icon, Photo, Section };
 interface SpaceProps {
   w: number | string;
   h?: number | string;
-  block: boolean;
+  block?: boolean;
   style?: CSSProperties;
   className?: ClassValue | ClassValue[];
   [props: string]: any;
