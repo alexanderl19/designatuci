@@ -7,8 +7,8 @@ import clsx from "clsx";
 
 interface IconProps {
   id: string;
-  w: number;
-  h: number;
+  w: number | string;
+  h: number | string;
   hoverable?: boolean;
   src: string;
   style?: CSSProperties;
