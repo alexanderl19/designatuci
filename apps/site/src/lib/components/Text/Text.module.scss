@@ -1,79 +1,82 @@
-@import "~@/lib/styles/variables";
-
-.container {
-  display: inline-block;
-  line-height: 1.12;
-  font-size: 18px;
-}
-
-.container > .container,
-.container s {
-  display: inline;
-  vertical-align: baseline;
-}
+@use "~@/lib/styles/variables" as variables;
 
 .block-paragraph > .container {
   display: inline-block;
 }
 
-.container s {
-  text-decoration: none;
-  font-size: inherit;
-  font-weight: inherit;
+.containerAlignLeft .container,
+.containerAlignLeft {
+  text-align: left;
 }
 
-// colors
 .container {
+  display: inline-block;
+  line-height: 1.12;
+  font-size: 18px;
+
+  > .container,
+  s {
+    display: inline;
+    vertical-align: baseline;
+  }
+
+  s {
+    text-decoration: none;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  // colors
   &.white {
-    color: $white;
+    color: variables.$white;
   }
 
   &.black {
-    color: $black;
+    color: variables.$black;
   }
 
   &.gray {
-    color: $gray;
+    color: variables.$gray;
   }
 
   &.grey {
-    color: $gray;
+    color: variables.$gray;
   }
 
   &.silver {
-    color: $silver;
+    color: variables.$silver;
   }
 
   &.blue {
-    color: $blue;
+    color: variables.$blue;
   }
 
   &.sky {
-    color: $sky;
+    color: variables.$sky;
   }
 
   &.orange {
-    color: $orange;
+    color: variables.$orange;
   }
 
   &.yellow {
-    color: $yellow;
+    color: variables.$yellow;
   }
 
   &.pink {
-    color: $pink;
+    color: variables.$pink;
   }
 
   &.red {
-    color: $red;
+    color: variables.$red;
   }
 
   &.violet {
-    color: $ultraviolet;
+    color: variables.$ultraviolet;
   }
 
   &.green {
-    color: $green;
+    color: variables.$green;
   }
 
   // size
@@ -96,6 +99,7 @@
   &.XXXL {
     font-size: 64px;
   }
+
   @media screen and (max-width: 768px) {
     font-size: 16px;
 
@@ -119,53 +123,50 @@
       font-size: 44px;
     }
   }
-}
 
-.container .link {
-  text-decoration: underline;
-}
+  .link {
+    text-decoration: underline;
 
-.container .link:hover {
-  color: black;
-}
-
-.containerAlignLeft .container,
-.containerAlignLeft {
-  text-align: left;
-}
-
-.container.indent {
-  text-indent: 2em;
-}
-
-.container {
-  &.pagelink::after {
-    z-index: 1;
-    content: "";
-    display: inline-block;
-    background: url("https://designatuci.com/static/icon/link-arrow.svg") center
-      no-repeat;
-    background-size: contain;
-    width: 18px;
-    height: 18px;
-    vertical-align: middle;
-    transform: translate(0px, -2px);
-    margin-left: 6px;
-    transition: transform 0.4s cubic-bezier(0.47, 0.4, 0, 1);
-  }
-  &.pagelink.white::after {
-    background: url("https://designatuci.com/static/icon/link-arrow-white.svg")
-      center no-repeat;
-  }
-  &.pagelink.L::after {
-    width: 24px;
-    height: 24px;
-    margin-left: 10px;
-    background-size: contain;
+    &:hover {
+      color: black;
+    }
   }
 
-  &.pagelink:hover::after {
-    transform: translate(2px, -2px) scale(1.62);
-    transition-timing-function: cubic-bezier(0.42, 1.52, 0.56, 1);
+  &.indent {
+    text-indent: 2em;
+  }
+
+  &.pagelink {
+    &::after {
+      z-index: 1;
+      content: "";
+      display: inline-block;
+      background: url("https://designatuci.com/static/icon/link-arrow.svg")
+        center no-repeat;
+      background-size: contain;
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      transform: translate(0px, -2px);
+      margin-left: 6px;
+      transition: transform 0.4s cubic-bezier(0.47, 0.4, 0, 1);
+    }
+
+    &.white::after {
+      background: url("https://designatuci.com/static/icon/link-arrow-white.svg")
+        center no-repeat;
+    }
+
+    &.L::after {
+      width: 24px;
+      height: 24px;
+      margin-left: 10px;
+      background-size: contain;
+    }
+
+    &:hover::after {
+      transform: translate(2px, -2px) scale(1.62);
+      transition-timing-function: cubic-bezier(0.42, 1.52, 0.56, 1);
+    }
   }
 }
