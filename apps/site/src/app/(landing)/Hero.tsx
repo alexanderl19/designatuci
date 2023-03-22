@@ -30,7 +30,7 @@ const Hero = () => (
           <Text
             style={{ display: "inline-block" }}
             size="XXXL"
-            className="wait dx l2 bold"
+            className="wait show dx l2 bold"
             key={i}
           >
             {word}
@@ -50,7 +50,7 @@ const Hero = () => (
       </Link>
     </div>
     <div className={cn.backgroundParent}>
-      <div className={clsx(cn.background, "wait drop d05 l3")}>
+      <div className={clsx(cn.background, "wait show drop d05 l3")}>
         <Image src={hero} fill priority alt="" />
       </div>
     </div>

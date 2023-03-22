@@ -37,8 +37,8 @@ const Text = ({
   <div
     className={clsx(
       cn.container,
-      cn[size],
-      cn[color],
+      size && cn[size],
+      color && cn[color],
       { [cn.pagelink]: icon === true || icon === "right" },
       className
     )}
