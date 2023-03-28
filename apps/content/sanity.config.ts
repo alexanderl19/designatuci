@@ -3,6 +3,8 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
+import {colorInput} from '@sanity/color-input'
+import {media} from 'sanity-plugin-media'
 
 import groq from 'groq'
 
@@ -14,6 +16,7 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
+    colorInput(),
     deskTool({
       structure: async (S, context: ConfigContext) => {
         const {getClient} = context
@@ -103,7 +106,13 @@ export default defineConfig({
                   .schemaType('siteSettings')
                   .documentId('318189ed-b3ec-4e79-9e49-c20f4e49d858')
               ),
-            S.listItem().title('Resources Page').child(),
+            S.listItem()
+              .title('Resources Page')
+              .child(
+                S.document()
+                  .schemaType('resourcesPage')
+                  .documentId('61a1b648-5052-494e-aaa2-cc11e949e465')
+              ),
             S.listItem()
               .title('About Page')
               .child(
@@ -150,6 +159,7 @@ export default defineConfig({
           ])
       },
     }),
+    media(),
     visionTool(),
   ],
 

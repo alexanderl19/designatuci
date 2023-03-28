@@ -1,0 +1,13 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 8px;
+  padding: 32px;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  margin: 8px 0;
+}
