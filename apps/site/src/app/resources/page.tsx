@@ -11,6 +11,7 @@ import cn from "./page.module.scss";
 
 const builder = imageUrlBuilder(client);
 
+export const revalidate = 60;
 export const metadata = {
   title: "Resources – Design at UCI",
 };

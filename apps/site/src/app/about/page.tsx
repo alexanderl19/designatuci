@@ -6,6 +6,7 @@ import Partners from "./Partners";
 
 import "./page.scss";
 
+export const revalidate = 60;
 export const metadata = {
   title: "About – Design at UCI",
 };
