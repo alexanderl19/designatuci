@@ -96,7 +96,13 @@ export default defineConfig({
         return S.list()
           .title('Content')
           .items([
-            S.listItem().title('Site Settings').child(),
+            S.listItem()
+              .title('Site Settings')
+              .child(
+                S.document()
+                  .schemaType('siteSettings')
+                  .documentId('318189ed-b3ec-4e79-9e49-c20f4e49d858')
+              ),
             S.listItem().title('Resources Page').child(),
             S.listItem()
               .title('About Page')

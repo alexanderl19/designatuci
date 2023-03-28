@@ -5,6 +5,7 @@ import author from './author'
 
 import socialLink from './socialLink'
 
+import siteSettings from './siteSettings'
 import aboutPage from './aboutPage'
 
 import person from './person'
@@ -18,6 +19,7 @@ export const schemaTypes = [
 
   socialLink,
 
+  siteSettings,
   aboutPage,
 
   person,
