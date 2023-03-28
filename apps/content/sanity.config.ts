@@ -98,7 +98,13 @@ export default defineConfig({
           .items([
             S.listItem().title('Site Settings').child(),
             S.listItem().title('Resources Page').child(),
-            S.listItem().title('About Page').child(),
+            S.listItem()
+              .title('About Page')
+              .child(
+                S.document()
+                  .schemaType('aboutPage')
+                  .documentId('bc49ea92-7976-41c2-9678-b8e4c4659faf')
+              ),
             S.divider(),
             S.listItem()
               .title('People')
@@ -126,14 +132,15 @@ export default defineConfig({
                   .filter('_type == "board"')
                   .menuItems([...S.documentTypeList('board').getMenuItems()!])
               ),
-            S.listItem()
-              .title('Events')
-              .child(
-                S.documentList()
-                  .title('Boards')
-                  .filter('_type == "event"')
-                  .menuItems([...S.documentTypeList('event').getMenuItems()!])
-              ),
+            // S.listItem()
+            //   .title('Events')
+            //   .child(
+            //     S.documentList()
+            //       .title('Boards')
+            //       .filter('_type == "event"')
+            //       .menuItems([...S.documentTypeList('event').getMenuItems()!])
+            //   ),
+            // ...S.documentTypeListItems(),
           ])
       },
     }),

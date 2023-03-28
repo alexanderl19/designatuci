@@ -1,0 +1,55 @@
+.carousel {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  z-index: 10;
+  top: 30%;
+
+  &.left {
+    transform: rotate(180deg);
+    left: max(16px, calc((100% - 60ch) / 2));
+  }
+
+  &.right {
+    right: max(16px, calc((100% - 60ch) / 2));
+  }
+}
+
+.quoteParent {
+  width: 100%;
+  padding: 0 calc((100% - 60ch) / 2);
+  display: flex;
+  gap: 96px;
+  overflow-x: scroll;
+  // Quotes scroll vertically even though they're the same height.
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}
+
+.quote {
+  padding: 0 48px;
+  opacity: 0.35;
+  transition: opacity 150ms;
+  scroll-snap-align: center;
+  flex-shrink: 0;
+  width: min(100%, 60ch);
+  // margin-bottom: 50px;
+  text-align: center;
+
+  &.active {
+    opacity: 1;
+  }
+
+  p {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    margin: 0 0 15px;
+  }
+
+  span {
+    font-size: 18px;
+  }
+}

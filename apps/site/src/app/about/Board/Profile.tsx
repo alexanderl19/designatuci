@@ -1,4 +1,4 @@
-import type { QueryResult } from "./page";
+import type { QueryResult } from "./getBoard";
 import { Icon } from "@/lib/components/Symbols";
 
 import { client } from "@/lib/sanity/public";
@@ -9,9 +9,8 @@ import cn from "./Profile.module.scss";
 
 interface ProfileProps {
   textOnly?: boolean;
-  member: QueryResult[0]["members"][0] | QueryResult[0]["interns"][0];
+  member: QueryResult["members"][0] | QueryResult["interns"][0];
 }
-
 const Profile = ({ textOnly = false, member }: ProfileProps) => (
   <div className={cn.container}>
     {!textOnly && (
