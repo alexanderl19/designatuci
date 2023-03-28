@@ -48,27 +48,7 @@ export default defineType({
       type: 'array',
       of: [
         defineArrayMember({
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'type',
-              title: 'Type',
-              type: 'string',
-              options: {
-                list: linkTypes.map((linkType) => ({
-                  title: linkType,
-                  value: linkType.toLowerCase().trim(),
-                })),
-              },
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: 'url',
-              title: 'URL',
-              type: 'url',
-              validation: (Rule) => Rule.required(),
-            }),
-          ],
+          type: 'socialLink',
         }),
       ],
       validation: (Rule) => Rule.unique(),
