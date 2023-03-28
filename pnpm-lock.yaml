@@ -52,6 +52,7 @@ importers:
       '@types/node': 18.15.3
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
+      '@types/react-mailchimp-subscribe': ^2.1.1
       clsx: ^1.2.1
       colorjs.io: ^0.4.3
       eslint: 8.36.0
@@ -86,6 +87,8 @@ importers:
       sass: 1.59.3
       server-only: 0.0.1
       typescript: 5.0.2
+    devDependencies:
+      '@types/react-mailchimp-subscribe': 2.1.1
 
 packages:
 
@@ -2889,6 +2892,12 @@ packages:
     dependencies:
       '@types/react': 18.0.28
     dev: false
+
+  /@types/react-mailchimp-subscribe/2.1.1:
+    resolution: {integrity: sha512-ic6ruLaDdlgwj94CeML/FGHiMacXB92bZbmJimNKVzrc147/hORPCy3nZ4MHGKBiZNVqi4NBmX1pN6i3Kbg1JA==}
+    dependencies:
+      '@types/react': 18.0.28
+    dev: true
 
   /@types/react-redux/7.1.25:
     resolution: {integrity: sha512-bAGh4e+w5D8dajd6InASVIyCo4pZLJ66oLb80F9OBLO1gKESbZcRCJpTT6uLXX+HAB57zw1WTdwJdAsewuTweg==}
