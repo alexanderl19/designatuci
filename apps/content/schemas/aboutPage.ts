@@ -85,6 +85,12 @@ export default defineType({
               ],
             }),
           ],
+
+          preview: {
+            select: {
+              title: 'text',
+            },
+          },
         }),
       ],
       group: 'details',
@@ -109,6 +115,14 @@ export default defineType({
               to: {type: 'person'},
             }),
           ],
+
+          preview: {
+            select: {
+              title: 'text',
+              subtitle: 'person.name',
+              media: 'person.image',
+            },
+          },
         }),
       ],
       group: 'testimonials',
