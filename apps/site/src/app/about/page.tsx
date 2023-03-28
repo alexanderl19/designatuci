@@ -10,7 +10,7 @@ export const metadata = {
   title: "About – Design at UCI",
 };
 
-const Home = async () => {
+const About = async () => {
   return (
     <>
       {/* https://beta.nextjs.org/docs/data-fetching/fetching */}
@@ -28,4 +28,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default About;
