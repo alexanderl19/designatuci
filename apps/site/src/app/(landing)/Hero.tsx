@@ -12,7 +12,7 @@ import cn from "./Hero.module.scss";
 const Hero = () => (
   <Section className="center short page" wrapperClass="flex">
     <div className="wait show scale" style={{ marginBottom: "64px" }}>
-      <Icon className="wait subtle dx" w="32" h="32" src="logo.svg" />
+      <Icon className="wait show subtle dx" w="32" h="32" src="logo.svg" />
       <Space w="16" />
       <Text size="L" className="bold">
         Design at UCI
