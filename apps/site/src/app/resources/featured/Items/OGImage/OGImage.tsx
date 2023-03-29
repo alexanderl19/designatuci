@@ -19,7 +19,8 @@ const OGImage = ({ url }: OGImageProps) => {
 
   const { data, error, isLoading } = useSWRImmutable(
     `/api/fetch-og-image?${searchParams.toString()}`,
-    fetcher
+    fetcher,
+    { shouldRetryOnError: false }
   );
 
   return (
