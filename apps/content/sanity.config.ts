@@ -106,12 +106,20 @@ export default defineConfig({
                   .schemaType('siteSettings')
                   .documentId('318189ed-b3ec-4e79-9e49-c20f4e49d858')
               ),
+            S.divider(),
             S.listItem()
               .title('Resources Page')
               .child(
                 S.document()
                   .schemaType('resourcesPage')
                   .documentId('61a1b648-5052-494e-aaa2-cc11e949e465')
+              ),
+            S.listItem()
+              .title('Featured Resources Page')
+              .child(
+                S.document()
+                  .schemaType('featuredResourcesPage')
+                  .documentId('94c0a72d-8fb0-49c4-929b-ecc8e57edfd4')
               ),
             S.listItem()
               .title('About Page')

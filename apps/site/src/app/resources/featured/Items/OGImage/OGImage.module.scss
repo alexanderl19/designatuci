@@ -1,0 +1,48 @@
+@use "~@/lib/styles/variables" as variables;
+
+.image {
+  position: relative;
+  height: 128px;
+  width: 100%;
+  display: grid;
+  place-content: center;
+
+  img {
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fallback {
+    height: 128px;
+    object-fit: cover;
+  }
+}
+
+.loading {
+  height: 128px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: variables.$silver;
+
+  // Don't ask me how this works, I don't know :) - Alexander
+  @keyframes skeleton {
+    0% {
+      mask-position: 200%;
+    }
+
+    100% {
+      mask-position: 0%;
+    }
+  }
+
+  animation: skeleton 1s linear infinite;
+  mask-image: linear-gradient(
+    60deg,
+    #000 25%,
+    rgba(0, 0, 0, 0.25) 50%,
+    #000 75%
+  );
+  mask-repeat: repeat;
+  mask-size: 200%;
+}

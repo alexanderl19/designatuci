@@ -27,7 +27,9 @@
     "react-responsive-carousel": "^3.2.23",
     "sass": "^1.59.3",
     "server-only": "^0.0.1",
-    "typescript": "5.0.2"
+    "swr": "^2.1.1",
+    "typescript": "5.0.2",
+    "unfurl.js": "^6.3.0"
   },
   "devDependencies": {
     "@types/react-mailchimp-subscribe": "^2.1.1"
